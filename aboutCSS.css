@@ -1,0 +1,661 @@
+:root {
+    --primary-color: #FD6602;
+    --secondary-color: #C43C79;
+    --text-color: #333;
+    --background-color: #ffffff;
+    --font-family: 'Play', sans-serif;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Play', sans-serif;
+    background-color: var(--background-color);
+    color: #333;
+    padding-block-start: 100px; /* Prevents content from hiding under the fixed header */
+    position: relative;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FAFAFA;
+    padding: 1.7em 2em;
+    color: #fff;
+    position: fixed;
+    inset-block-start: 0;
+    inline-size: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 10;
+}
+
+h1{
+    text-align: center;
+    font-size: 3em; /* Larger title */
+    margin-block-end: 40px; /* Space below the title */
+    margin-block-start: 80px; /*Space above the title*/
+    color: #333;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+nav a {
+    color: #fff;
+    background-color: #C43C79;
+    padding: 0.5em 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #fff;
+    color: #FD6602;
+}
+
+/* Basic styling for the nav links */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown content box */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: #ffffff; /* White background for dropdown */
+    border: 1px solid #ddd;
+    padding: 0.3em 0;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-size: 0.7em;
+    flex-direction: column;
+    min-inline-size: 160px;
+}
+
+/* Links inside the dropdown with separate styling */
+.dropdown-content a {
+    display: block;
+    padding: 8px 16px;
+    text-align: start;
+    color: #FD6602; /* Orange text color for dropdown links */
+    background-color: #ffffff; /* White background specifically for dropdown links */
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover effect specifically for dropdown links */
+.dropdown-content a:hover {
+    background-color: #C43C79; /* Pinkish background color on hover for dropdown items */
+    color: #ffffff; /* White text on hover */
+}
+
+/* Show dropdown content on hover and keep it visible */
+.nav-dropdown:hover .dropdown-content,
+.nav-dropdown:focus-within .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    inline-size: 60px;
+    animation: flip 5s linear infinite;
+}
+
+/* foundation Banner Styling */
+.foundation .foundation-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline-start: 30px;
+    padding-inline-end: 30px;
+}
+
+.foundation .foundation-banner img {
+    inline-size: 100%;
+    max-block-size: 200px;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.foundation .foundation-banner h2 {
+    font-size: 3.5em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-block-start: 0.5em;
+    margin-block-end: 10px;
+    margin-block-start: 50px;
+}
+
+
+.about-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-block-start: 120px;
+}
+
+/* General styling for .person */
+.person {
+    flex: 1;
+    text-align: start;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    z-index: 1;
+    border: 2px solid transparent;
+    box-shadow: 0 0 10px rgba(199, 0, 255, 0.3); /* Soft glow */
+    margin-inline-start: 60px;
+    margin-inline-end: 60px;
+}
+
+.person:hover {
+    box-shadow: 0 0 15px rgba(199, 0, 255, 0.8); /* Glow intensifies */
+    transform: scale(1.03); /* Slight scaling */
+}
+
+/* Highlighted state for focused bio */
+.person.focused {
+    position: fixed;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%) scale(1.5); /* Center and enlarge */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1010; /* Ensure it stays above the dimmed overlay */
+    background-color: #fff;
+    color: #333; /* Ensure text readability */
+    filter: brightness(1.2); /* Slight brightness increase */
+    isolation: isolate; /* Prevent blending with overlay */
+}
+
+/* Background dimming overlay */
+.dim-overlay {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Initially transparent */
+    z-index: 998; /* Below the focused person */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Active state for the overlay */
+.dim-overlay.active {
+    visibility: visible; /* Make visible */
+    opacity: 1; /* Fade in overlay */
+}
+
+/* Styling for headings within .person */
+.person h2, .person h3 {
+    margin: 10px 0;
+    color: var(--primary-color);
+    text-align: center;
+}
+.person h3{
+    text-decoration: overline;
+}
+
+.person p{
+    line-height: 1.5em;
+}
+
+/* Hiding elements when needed */
+.hidden {
+    pointer-events: none;
+    opacity: 0;
+}
+
+
+
+.certifications {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: #f5f5f5;
+}
+
+.certifications-box {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 20px 30px;
+    max-inline-size: 650px;
+    text-align: center;
+}
+
+.certifications-box h2 {
+    font-size: 1.8em;
+    margin-block-end: 15px;
+}
+
+.certifications-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.certifications-box li {
+    font-size: 1.1em;
+    line-height: 1.8;
+    text-align: start;
+    margin-inline-start: 15px;
+}
+
+.certifications-box li:before {
+    content: '⭐';
+    margin-inline-end: 8px;
+    color: #ffd700; /* Gold star */
+}
+
+.section-wrapper {
+    background-color: #ffffff;
+    padding-block-start: 40px;
+    padding-block-end: 120px;
+}
+
+/* Spacer Section (Full-Width Banner) */
+.spacer {
+    background: #c43c79;
+    text-align: center;
+    padding: 30px 20px;
+    color: white;
+    inline-size: 100%; /* Makes the spacer full width */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.spacer h2 {
+    margin-block-end: 20px;
+    font-size: 2rem;
+}
+
+.spacer-button {
+    background-color: white;
+    color: #54147c;
+    padding: 12px 24px;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+.spacer-button:hover {
+    background-color: #54147c;
+    color: white;
+    border: 2px solid white;
+}
+
+/* Highlight the company name */
+.foundation-description .highlight {
+    color: #FD6602; /* Bright orange */
+    font-size: 1.8em; /* Larger for emphasis */
+    font-weight: bold;
+}
+
+/* General styling for foundation article */
+.foundation-article {
+    font-size: 1.1em;
+    line-height: 1.4;
+    margin-inline-start: 200px;
+    margin-inline-end: 200px
+}
+
+.foundation-description {
+    margin: 20px 0;
+    line-height: 1.8em;
+}
+
+/* Styling for the more link */
+.foundation-article .more-link {
+    color: var(--primary-color); /* Accent color */
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 1em;
+}
+
+.foundation-article .more-link:hover {
+    color: var(--secondary-color); /* Hover color */
+}
+
+/* Base styles for more/less behavior */
+.more-text {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.more-text[style*="display: inline"] {
+    opacity: 1;
+}
+
+.more-link {
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.more-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Popup Container */
+.popup-container {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden; /* Hidden by default */
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+}
+
+/* Popup Container */
+.popup-container {
+    position: fixed;
+    inset: 0; /* Fullscreen pop-up */
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.popup-container.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Popup Box */
+.popup {
+    background: linear-gradient(
+        135deg,
+        #C43C79 5%, /* Bright purple in the corner */
+        #ffffff 20%, /* white */
+        #ffffff 100% /* extra white for better fading*/
+    ); 
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-inline-size: 500px;
+    inline-size: 90%; /* Responsive width */
+    text-align: center;
+    position: relative;
+}
+
+
+
+/* Form Fields */
+form input,
+form textarea {
+    inline-size: 100%;
+    padding: 10px;
+    margin-block-end: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Name Fields Side-by-Side */
+.name-fields {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.name-fields input {
+    flex: 1;
+}
+
+/* Radio Button Options */
+.radio-options {
+    display: flex;
+    flex-wrap: wrap; /* Wraps options for smaller screens */
+    justify-content: space-between;
+    margin-block-end: 15px;
+    gap: 10px;
+    padding: 10px;
+}
+
+.radio-options label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-options input {
+    margin-inline-end: 8px; /* Space between radio and label text */
+}
+
+/* Message Box */
+form textarea {
+    block-size: 150px;
+    resize: none;
+}
+
+/* Buttons (Submit and Cancel) */
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-block-start: 5px;
+}
+
+.submit-btn,
+.close-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    background-color: #54147c;
+    color: #fff;
+    margin-inline-start: 105px;
+}
+
+.submit-btn:hover {
+    background: #c43c79;
+}
+
+/* Close Button in Top-Right Corner */
+.close-btn {
+    position: absolute;
+    background: #54147c;
+    inset-inline-start: 290px;
+    border: none;
+    font-size: 1rem;
+    color:white;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: #c43c79;
+    color: #fff;
+}
+
+
+/* Contact form styling */
+/*THE FOOTER*/
+#contact {
+    padding-block-start: 20px;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    inline-size: 500px;
+    block-size: 475px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.1em;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1em;
+    max-inline-size: 42px;
+    margin: -10px auto;
+}
+
+.form-title {
+    font-size: 1.2em;
+}
+
+#contact input,
+#contact textarea {
+    padding: 1em;
+    border: none;
+    border-radius: 25px;
+    inline-size: 400px;
+    align-items: center;
+}
+
+.form-msg textarea {
+    block-size: 155px;
+}
+
+#contact button {
+    padding: 0.7em;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    inline-size: 65px;
+    cursor: pointer;
+    transition: background 0.3s;
+    animation: pulse 1.5s infinite;
+}
+
+#contact button:hover {
+    background: #7F00FF;
+}
+
+/* Footer styling */
+footer {
+    background: linear-gradient(120deg, #54147c, #c43c79);
+    color: #fff;
+    padding: 2em;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-content {
+    flex: 1;
+    max-inline-size: 45%;
+    text-align: center;
+    margin-inline-end: 200px;
+    margin-inline-start: 100px;
+    padding-block-start: 65px;
+    font-size: 1.1em;
+}
+
+.footer-content p {
+    margin-block-end: 1em;
+}
+
+.social-media-icons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+.social-media-icons a img {
+    inline-size: 45px;
+    block-size: 45px;
+    transition: transform 0.3s;
+}
+
+.social-media-icons a img:hover {
+    transform: scale(1.2);
+}
+
+
+/* Below section are all keyframes for organization*/ 
+
+
+/* Bounce animation keyframes */
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
