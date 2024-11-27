@@ -1,0 +1,777 @@
+:root {
+    --primary-color: #FD6602;
+    --secondary-color: #C43C79;
+    --text-color: #333;
+    --background-color: #FAFAFA;
+    --font-family: 'Play', sans-serif;
+    --heading-font: 'Lato', sans-serif;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAFAFA;
+    color: #333;
+    padding-block-start: 100px; /* Prevents content from hiding under the fixed header */
+}
+
+/* global font change where allowed*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700; /* Use the bold weight for headings */
+    font-size: calc(1.5em + 2vw); /* Adjust size depending on viewport width */
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FAFAFA;
+    padding: 1.7em 2em;
+    color: #fff;
+    position: fixed;
+    inset-block-start: 0;
+    inline-size: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 10;
+}
+
+h1{
+    text-align: center;
+    font-size: 3em; /* Larger title */
+    margin-block-end: 40px; /* Space below the title */
+    margin-block-start: 80px; /*Space above the title*/
+    color: #333;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+nav a {
+    color: #fff;
+    background-color: #C43C79;
+    padding: 0.5em 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #fff;
+    color: #FD6602;
+}
+
+/* Basic styling for the nav links */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown content box */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: #ffffff; /* White background for dropdown */
+    border: 1px solid #ddd;
+    padding: 0.3em 0;
+    font-size: 0.7em;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    flex-direction: column;
+    min-inline-size: 200px;
+}
+
+/* Links inside the dropdown with separate styling */
+.dropdown-content a {
+    display: block;
+    padding: 8px 16px;
+    text-align: start;
+    color: #FD6602; /* Orange text color for dropdown links */
+    background-color: #ffffff; /* White background specifically for dropdown links */
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover effect specifically for dropdown links */
+.dropdown-content a:hover {
+    background-color: #C43C79; /* Pinkish background color on hover for dropdown items */
+    color: #ffffff; /* White text on hover */
+}
+
+/* Show dropdown content on hover and keep it visible */
+.nav-dropdown:hover .dropdown-content,
+.nav-dropdown:focus-within .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    inline-size: 60px;
+}
+
+/* General Container Styling */
+.banner-space {
+    max-inline-size: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Space around the content for smaller screens */
+    box-sizing: border-box;
+}
+
+/* Services Banner Styling */
+.services-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding-inline-start: 30px;
+    padding-inline-end: 30px;
+}
+
+.services-banner img {
+    inline-size: 100%;
+    max-block-size: 200px;
+    object-fit: cover;
+    border-radius: 100px;
+    margin-block-start: 30px;
+}
+
+.services-banner h1 {
+    font-size: 3.5em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-block-start: 0.5em;
+}
+
+
+/* General Styling for Service Sections */
+.service {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12-column grid for flexibility */
+    gap: 20px; /* Space between image and text */
+    align-items: center;
+    margin: 60px 0; /* Space between each service */
+    position: relative;
+}
+
+.service .image {
+    grid-column: span 5; /* Images take up 5 columns */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    inset-block-start: 0;
+}
+
+.service img {
+    inline-size: 450px; /* Full width within its container */
+    block-size: 350px; /* Consistent height */
+    object-fit: cover; /* Ensures the image scales properly without distortion */
+    border-radius: 8px; /* Optional: keep the rounded corners */
+    box-shadow: 0px 8px 15px rgba(196, 60, 121, 0.6); /* Add a soft glow in #C43C79 */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth effect */
+}
+
+.service img:hover {
+    box-shadow: 0px 12px 25px rgba(196, 60, 121, 0.9); /* Intensify the glow on hover */
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.service .text {
+    grid-column: span 7; /* Text takes up 7 columns */
+    opacity: 1;
+    transform: translateY(0); /* Start animation from below */
+}
+
+
+.service[data-service="odd"] .image {
+    grid-column: 1 / span 5; /* Align images to the left for odd sections */
+    align-self: start; /* Align image at the top */
+}
+
+.service[data-service="odd"] .text {
+    margin-block-end: 150px;
+    max-inline-size: 70%;
+    font-size: 0.9em;
+}
+
+/* Alignment Fix for Even-Numbered Services */
+.service[data-service="even"] {
+    display: flex;
+    flex-direction: row-reverse; /* Reverse the order: image on the right, text on the left */
+}
+
+.service[data-service="even"] .image {
+    order: 1; /* Ensure the image stays on the right */
+    margin-inline-end: 100px;
+    align-self: start; /* Align image at the top */
+}
+
+.service[data-service="even"] .text {
+    order: 2; /* Ensure the text stays on the left */
+    margin-block-end: 100px;
+    margin-inline-end: 200px;
+    text-align: start;
+    font-size: 0.9em;
+    margin-inline-start: 290px;
+}
+
+.service.visible .text {
+    opacity: 1;
+    font-size: 1.1em;
+    transform: translateY(0); /* Reset animation when visible */
+}
+
+.service[data-service="even"] h2 {
+    font-size: 2.0em;
+    color: #C43C79;
+    margin-block-end: 0.5em;
+    text-align: end;
+}
+
+.service[data-service="odd"] h2 {
+    font-size: 2.0em;
+    color: #C43C79;
+    margin-block-end: 0.5em;
+    text-align: start;
+}
+
+.service-preview {
+    margin-block-end: 165px;
+}
+
+.service-details {
+    display: none;
+    margin-block-start: 0.5em;
+}
+
+.more-text {
+    display: none;
+}
+
+.more-link, .less-link {
+    display: inline-block;
+    color: #FD6602;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85em;
+    text-decoration: underline;
+    animation: pulse 1.5s infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+.more-link:hover {
+    color: #c43c79;
+}
+
+.less-link {
+    display: inline-block; /* Ensure it appears at the end of the full text */
+}
+
+/* Spacer Section */
+.service-wrapper {
+    background-color: #fafafa;
+    padding: 15px 10px;
+}
+
+
+/* Spacer Section (Full-Width Banner) */
+.spacer {
+    background-color: #c43c79;
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+    inline-size: 100%; /* Makes the spacer full width */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.spacer h2 {
+    margin-block-end: 20px;
+    font-size: 2rem;
+}
+
+.spacer-button {
+    background-color: white;
+    color: #c43c79;
+    padding: 12px 24px;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+.spacer-button:hover {
+    background-color: #c43c79;
+    color: white;
+    border: 2px solid white;
+}
+
+
+.spacer-button:hover {
+    background-color: #c43c79;
+    color: white;
+    border: 2px solid white;
+}
+
+/* Popup Container */
+.popup-container {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden; /* Hidden by default */
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+}
+
+/* Popup Container */
+.popup-container {
+    position: fixed;
+    inset: 0; /* Fullscreen pop-up */
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.popup-container.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Popup Box */
+.popup {
+    background: linear-gradient(
+        135deg,
+        #C43C79 5%, /* Bright purple in the corner */
+        #ffffff 20%, /* white */
+        #ffffff 100% /* extra white for better fading*/
+    ); 
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-inline-size: 500px;
+    inline-size: 90%; /* Responsive width */
+    text-align: center;
+    position: relative;
+}
+
+
+
+/* Form Fields */
+form input,
+form textarea {
+    inline-size: 100%;
+    padding: 10px;
+    margin-block-end: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Name Fields Side-by-Side */
+.name-fields {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.name-fields input {
+    flex: 1;
+}
+
+/* Radio Button Options */
+.radio-options {
+    display: flex;
+    flex-wrap: wrap; /* Wraps options for smaller screens */
+    justify-content: space-between;
+    margin-block-end: 15px;
+    gap: 10px;
+    padding: 10px;
+}
+
+.radio-options label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-options input {
+    margin-inline-end: 8px; /* Space between radio and label text */
+}
+
+/* Message Box */
+form textarea {
+    block-size: 150px;
+    resize: none;
+}
+
+/* Buttons (Submit and Cancel) */
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-block-start: 5px;
+}
+
+.submit-btn,
+.close-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    background-color: #54147c;
+    color: #fff;
+    margin-inline-start: 105px;
+}
+
+.submit-btn:hover {
+    background: #c43c79;
+}
+
+/* Close Button in Top-Right Corner */
+.close-btn {
+    position: absolute;
+    background: #54147c;
+    inset-inline-start: 290px;
+    border: none;
+    font-size: 1rem;
+    color:white;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: #c43c79;
+    color: #fff;
+}
+
+
+/* Contact form styling */
+/*THE FOOTER*/
+#contact {
+    padding-block-start: 20px;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    inline-size: 500px;
+    block-size: 475px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.1em;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1em;
+    max-inline-size: 42px;
+    margin: -10px auto;
+}
+
+.form-title {
+    font-size: 1.2em;
+}
+
+#contact input,
+#contact textarea {
+    padding: 1em;
+    border: none;
+    border-radius: 25px;
+    inline-size: 400px;
+    align-items: center;
+}
+
+.form-msg textarea {
+    block-size: 155px;
+}
+
+#contact button {
+    padding: 0.7em;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    inline-size: 65px;
+    cursor: pointer;
+    transition: background 0.3s;
+    animation: pulse 1.5s infinite;
+}
+
+#contact button:hover {
+    background: #7F00FF;
+}
+
+/* Footer styling */
+footer {
+    background: linear-gradient(120deg, #54147c, #c43c79);
+    color: #fff;
+    padding: 2em;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-content {
+    flex: 1;
+    max-inline-size: 45%;
+    text-align: center;
+    margin-inline-end: 200px;
+    margin-inline-start: 100px;
+    padding-block-start: 65px;
+    font-size: 1.1em;
+}
+
+.footer-content p {
+    margin-block-end: 1em;
+}
+
+.social-media-icons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+.social-media-icons a img {
+    inline-size: 45px;
+    block-size: 45px;
+    transition: transform 0.3s;
+}
+
+.social-media-icons a img:hover {
+    transform: scale(1.2);
+}
+
+
+/* Below section are all keyframes for organization*/ 
+
+
+/* Bounce animation keyframes */
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Sequential Bounce Animation */
+@keyframes bounce-sequential {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    10%,
+    30% {
+        transform: translateY(-10px);
+    } /* Adjust height of the bounce */
+}
+
+/* Keyframe for flip animation */
+@keyframes flip {
+    0% {
+        transform: rotateY(0);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Keyframes for line animations */
+@keyframes lineFlowIn {
+    from {
+        opacity: 0;
+        transform: translateX(var(--from, -100%));
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Consolidated Responsive Adjustments */
+
+/* Responsive Tweaks for Smaller Screens (max-inline-size: 1024px) */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+    .service-item {
+        inline-size: 300px; /* Slightly smaller for medium screens */
+        block-size: 250px;
+    }
+}
+
+/* Responsive Tweaks for Tablets and Smaller Screens (max-inline-size: 768px) */
+@media (max-width: 768px) {
+    /* Navigation */
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns for tablets */
+        gap: 1.5em; /* Reduce gap slightly */
+    }
+    .services-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .services-title, .services-grid {
+        max-inline-size: 100%;
+        text-align: center;
+    }
+    .service-item {
+        inline-size: 250px; /* Smaller for tablets */
+        block-size: 220px;
+    }
+    .service[data-service="even"] {
+        flex-direction: column; /* Stack vertically on smaller screens */
+    }
+    .service[data-service="even"] .image,
+    .service[data-service="even"] .text {
+        max-inline-size: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .info-points {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+    .info-title {
+        max-inline-size: 100%;
+        margin-block-end: 1.5em;
+    }
+}
+
+/* Responsive Tweaks for Phones (max-inline-size: 480px) */
+@media (max-width: 480px) {
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: 1fr; /* Single column for small screens */
+        gap: 1em; /* Smaller gap */
+    }
+    .service-item {
+        inline-size: 100%; /* Full width */
+        block-size: auto; /* Maintain aspect ratio */
+    }
+    /* Banner Adjustments */
+    .banner {
+        block-size: 300px; /* Adjust height for phones */
+    }
+    .banner h1 {
+        font-size: 1.5em;
+    }
+    .banner p {
+        font-size: 0.9em;
+    }
+    .banner button {
+        padding: 0.5em 1em;
+        font-size: 0.9em;
+    }
+    nav {
+        font-size: 0.9em;
+    }
+}
+
+/* Fade-in Class for Scroll-Triggered Animations */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
