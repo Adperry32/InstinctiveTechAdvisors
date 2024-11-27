@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="portfolioCSS.css">
+
+    <!--link for Lato font, titles & headings font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Play:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body >
+    <header>
+        <div class="logo-container">
+            <a href="index.html" id="home-logo">
+                <img src="images/IconOnly_Transparent_NoBuffer.png" alt="Company Logo" class="logo">
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <div class="nav-dropdown">
+                <a href="servicesPage.html" class="nav-link">Services</a>
+                <div class="dropdown-content">
+                    <a href="servicesPage.html#service1">CRM Solutions</a>
+                    <a href="servicesPage.html#service2">Hospitality Solutions</a>
+                    <a href="servicesPage.html#service3">E-Commerce</a>
+                    <a href="servicesPage.html#service4">Real Estate</a>
+                    <a href="servicesPage.html#service5">Health & Wellness</a>
+                    <a href="servicesPage.html#service6">AI/Machine Learning</a>
+                    <a href="servicesPage.html#service7">Custom Mobile</a>
+                    <a href="servicesPage.html#service8">Educational</a>
+                    <a href="servicesPage.html#service9">Data Analytics</a>
+                    <a href="servicesPage.html#service10">Power Platforms</a>
+                </div>
+            </div>
+            <a href="portfolioPage.html" class="nav-link">Portfolio</a>
+            <a href="aboutPage.html" class="nav-link">About Us</a>
+        </nav>
+    </header>
+
+    <div class="portfolio-section">
+        <div class="portfolio-banner fade-in">
+            <img src="images/banner-port.jpg" alt="Banner of a custom design levitating from phone or mobile device">
+            <h1>Portfolio</h1> 
+        </div>
+
+    <main>
+        <section class="section-wrapper">
+            <div class="portfolio-paragraph">
+                <p>
+                    At Instinctive Tech Advisors, we deliver innovative technology solutions designed to empower businesses and enhance user experiences. 
+                    From creating comprehensive fit-tech platforms that integrate wellness, fitness tracking, and mental health monitoring, 
+                    to advancing property technology with tools that streamline real estate operations for companies like Keller Williams, our work drives meaningful results.
+                    In education, we’ve developed intuitive, interactive applications that engage students in technical learning.
+                    Our efforts have directly supported improved retention rates in programs like those at Full Sail University, helping students and institutions thrive in a digital age.
+                    We’ve also upgraded retail POS systems for Walgreens and self-check-in solutions that elevate customer experiences in industries like hospitality and retail. 
+                    We have also designing backend systems that seamlessly integrate inventory management and customer loyalty features, enhancing the customer journey from checkout to follow-up.
+                    <br><br>
+                    For FitStir, a fitness app, we developed and implemented advanced features for workout tracking, community engagement, and personalized fitness plans, bringing cutting-edge 
+                    technology to help users reach their wellness goals. We brought similar expertise to Echelon, a fitness technology company, where we contributed to the creation of connected 
+                    fitness experiences—including seamless device integration, data synchronization.In the hospitality sector, we’ve delivered self-check-in 
+                    and room automation technologies, ensuring smoother guest experiences and improved operational efficiencies. By combining technical expertise with a deep 
+                    understanding of client needs, we create practical, impactful solutions that deliver value across sectors.
+
+
+                </p>
+            </div>
+                
+            </section>
+        </div>
+        
+    </main>
+
+    <!-- Spacer Section -->
+    <section class="canvasTitle-wrapper">
+        <div class="spacer">
+            <h2>Use Your Instincts, Get Started Today</h2>
+            <button class="spacer-button">Learn More</button>
+        </div>  
+    </section>
+
+
+    
+
+    <!--Title section for floating logos-->
+    <section class="canvasTitle-wrapper">
+        <section class="title-portfolio fade-in">
+            <div class="title">
+                <p>Companies We Work With</p>
+            </div>
+        </section>
+
+    </section>
+
+    <!-- Floating Logos Section -->
+        <section id="floating-logos-section">
+            <div class="floating-logos-container">
+                <!-- The canvas where the logos will be animated -->
+                <canvas id="logoCanvas"></canvas>
+            </div>
+        </section>
+
+        
+
+
+
+        <!--pop up contact form-->
+        <div class="popup-container" id="popupForm">
+            <div class="popup">
+                <h2>Contact Us</h2>
+                <form id="contactForm">
+                    <!-- Name Fields -->
+                    <div class="name-fields">
+                        <input type="text" id="firstName" placeholder="First Name" required>
+                        <input type="text" id="lastName" placeholder="Last Name" required>
+                    </div>
+        
+                    <!-- Company Field -->
+                    <input type="text" id="companyName" placeholder="Company Name (Optional)">
+        
+                    <!-- Email Field -->
+                    <input type="email" id="email" placeholder="Email Address" required>
+        
+                    <!-- Best Time to Contact -->
+                    <p>Best Time to Contact:</p>
+                    <div class="radio-options">
+                        <label><input type="radio" name="contactTime" value="Morning" required> Morning</label>
+                        <label><input type="radio" name="contactTime" value="Noon"> Noon</label>
+                        <label><input type="radio" name="contactTime" value="Afternoon"> Afternoon</label>
+                    </div>
+        
+                    <!-- Phone Number Field -->
+                    <input type="tel" id="phone" placeholder="Area Code - ###-####" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+        
+                    <!-- Message Box -->
+                    <textarea id="message" placeholder="Short Message"></textarea>
+        
+                    <div class="buttons">
+                        <button type="submit" class="submit-btn">Submit</button>
+                        <button class="close-btn" id="closePopup">Cancel</button>
+                    </div>
+                    
+                </form>
+            </div>
+        
+        </div>
+
+
+        <!-- Footer section -->
+        <footer>
+            <div class="footer-content">
+                <p>Instinctive Tech Advisors empowers businesses with innovative technology solutions, specializing in AI-driven systems, custom software, and data-driven strategies. From tailored CRM tools to advanced mobile and e-commerce development, we deliver impactful results to elevate your operations.</p>
+                <p>Connect with Us on Social Media</p>
+                <div class="social-media-icons">
+                    <a href="https://facebook.com" target="_blank"><img src="assets/FB icon.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/tech_advisorsllc/" target="_blank"><img src="assets/IG icon.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/instinctive-tech-advisors/" target="_blank"><img src="assets/linkedin icon.png" alt="LinkedIn"></a>
+                </div>
+                <p>Sandy Springs, GA 30350</p>
+                <p>(678) 334-4015</p>
+                <p>&copy; 2024 Instinctive Tech Advisors</p>
+            </div>
+            <div class="form fade-in">
+                <form id="contact">
+                    <div class="form-title">
+                        <p>Contact Us</p>
+                    </div>
+                    <input type="text" placeholder="Your Name" required aria-label="Your Name">
+                    <input type="email" placeholder="Your Email" required aria-label="Your Email">
+                    <div class="form-msg">
+                        <textarea placeholder="Your Message" required aria-label="Your Message"></textarea>
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </footer>
+
+        <script src="CommonScript.js"></script>
+        <script src="portfolio.js"></script>
+        
+</body>
+
+</html>
