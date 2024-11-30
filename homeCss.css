@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Body styling */
 body {
     font-family: 'Play', sans-serif;
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
     color: #333;
     padding-block-start: 100px; /* Prevents content from hiding under the fixed header */
 }
@@ -149,10 +149,10 @@ section.banner {
 
 /* Styling for the banner section */
 .banner {
-    background-image: url('images/design.jpg');
+    background-image: url('images/clean-banner.jpg');
     background-size: cover;
     background-position: center;
-    block-size: 520px;
+    block-size: 620px;
     inline-size: 100%;
     max-block-size: 60vh;
     margin: 0; /* Removes default margin */
@@ -192,7 +192,7 @@ section.banner {
     transition: background 0.3s;
     animation: pulse 1.5s infinite;
     position: relative; /* Keeps the button in the banner flow */
-    margin-block-end: 70px; /* Adds spacing from the bottom */
+    margin-block-end: 20px; /* Adds spacing from the bottom */
 }
 
 .banner button:hover {
@@ -220,9 +220,11 @@ section.banner {
     justify-content: space-around;
     background: linear-gradient(120deg, #c43c79, #54147c);
     color: #fff;
-    padding: 1.8em 1.5em;
+    padding: 1.1em 1.5em;
     gap: 5.5em;
+    margin-block-start: 50px;
     align-items: center; /* Center-align title vertically */
+    
 }
 
 .info-title {
