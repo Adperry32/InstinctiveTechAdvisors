@@ -142,7 +142,7 @@ nav a:hover {
 
 /* Exclude specific section spacing if needed */
 section.banner {
-    margin-block-start: -45px;
+    margin-block-start: -25px;
     margin-block-end: 0;
 }
 
@@ -154,7 +154,7 @@ section.banner {
     background-position: center;
     block-size: 620px;
     inline-size: 100%;
-    max-block-size: 60vh;
+    max-block-size: 80vh;
     margin: 0; /* Removes default margin */
     padding: 0; /* Removes padding */
     text-align: center;
