@@ -1227,129 +1227,235 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
-    /* Header */
-    header {
-        padding: 1em 0.5em;
-        text-align: center;
+/* Responsive Adjustments for Mobile Compatibility */
+
+/* Base Mobile Styling for Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+
+    /* General Font Sizes */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 1.2em;
     }
 
-    /* Navigation */
+    p,
+    li,
+    a {
+        font-size: 0.8em;
+    }
+
+    /* Header Adjustments */
+    header {
+        padding: 0.5em;
+        font-size: 0.8em;
+        flex-direction: column;
+        align-items: center;
+    }
+
     nav {
         flex-direction: column;
         align-items: center;
         gap: 8px;
     }
 
-    /* Banner Section */
+    nav a {
+        padding: 0.4em 0.8em;
+        font-size: 0.9em;
+    }
+
+    /* Banner Section Adjustments */
     .banner {
-        block-size: 300px;
+        block-size: 250px;
+        padding: 1em;
         justify-content: center;
     }
+
     .banner h1 {
         font-size: 1.8em;
     }
+
     .banner p {
         font-size: 0.9em;
     }
 
-    /* Key Areas Section */
-    .info-section {
-        gap: 1.5em;
+    .banner button {
+        font-size: 0.8em;
+        padding: 0.5em;
     }
-    .info-item {
+
+    /* Key Areas Section Adjustments */
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5em;
         padding: 1em;
     }
 
-    /* Services Section */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5em;
-    }
-    .service-item {
-        inline-size: 100%;
-    }
-
-    /* Text Areas */
-    .text-content, .info-title {
+    .info-title {
         max-inline-size: 100%;
         text-align: center;
     }
 
-    /* Key Areas Grid */
+    .info-points {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .info-item {
+        max-inline-size: 90%;
+        padding: 1em;
+    }
+
+    /* Services Section Adjustments */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+
+    .service-item {
+        inline-size: 100%;
+    }
+
+    /* Text Areas Adjustments */
+    .text-content {
+        max-inline-size: 100%;
+        text-align: center;
+    }
+
+    /* Key Areas Grid Adjustments */
     .key-areas-grid {
         flex-direction: column;
         gap: 1em;
         text-align: center;
     }
 
-    /* Forms */
-    form {
+    /* Community Section Adjustments */
+    .community {
+        flex-direction: column;
+        gap: 1.5em;
         padding: 1em;
     }
+
+    .community .text-content {
+        padding-inline-start: 0;
+    }
+
+    .community .community-image-content img {
+        max-inline-size: 100%;
+        border-radius: 10px;
+    }
+
+    /* Popup Form Adjustments */
+    .popup {
+        max-inline-size: 90%;
+        padding: 1em;
+    }
+
     form input,
     form textarea {
         font-size: 0.9rem;
         padding: 0.5em;
     }
 
-    /* Footer Content */
-    .footer-content {
-        max-inline-size: 90%;
-    }
-
-    /* Logo */
-    .logo {
-        inline-size: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* General Font Sizes */
-    h1, h2, h3, h4 {
-        font-size: 1.2em;
-    }
-    p, li, a {
-        font-size: 0.8em;
-    }
-
-    /* Header */
-    header {
-        padding: 0.5em;
-        font-size: 0.8em;
-    }
-
-    /* Banner Section */
-    .banner {
-        block-size: 250px;
-    }
-
-    /* Community */
-    .community {
-        flex-direction: column;
-        gap: 1.5em;
-    }
-
-    /* Footer */
+    /* Footer Adjustments */
     footer {
         padding: 1em;
+        text-align: center;
     }
+
     .footer-content {
         max-inline-size: 100%;
-        text-align: center;
         padding: 1em;
         font-size: 0.8em;
     }
 
-    /* Buttons */
-    .spacer-button, .submit-btn {
+    .social-media-icons a img {
+        inline-size: 30px;
+        block-size: 30px;
+    }
+
+    /* Button Adjustments */
+    .spacer-button,
+    .submit-btn {
         font-size: 0.7em;
         padding: 0.4em;
     }
 
-    /* Buttons General */
     button {
         padding: 0.5em;
         font-size: 0.8em;
+    }
+}
+
+/* Medium-Sized Devices (max-width: 768px) */
+@media (max-width: 768px) {
+
+    /* Header Adjustments */
+    header {
+        padding: 1em 0.5em;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Banner Section Adjustments */
+    .banner {
+        block-size: 300px;
+        justify-content: center;
+    }
+
+    .banner h1 {
+        font-size: 1.8em;
+    }
+
+    .banner p {
+        font-size: 0.9em;
+    }
+
+    /* Key Areas Section Adjustments */
+    .info-section {
+        gap: 1.5em;
+    }
+
+    .info-item {
+        padding: 1em;
+    }
+
+    /* Services Section Adjustments */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+
+    .service-item {
+        inline-size: 100%;
+    }
+
+    /* Text Areas Adjustments */
+    .text-content,
+    .info-title {
+        max-inline-size: 100%;
+        text-align: center;
+    }
+
+    /* Key Areas Grid Adjustments */
+    .key-areas-grid {
+        flex-direction: column;
+        gap: 1em;
+        text-align: center;
+    }
+
+    /* Footer Content Adjustments */
+    .footer-content {
+        max-inline-size: 90%;
     }
 }
