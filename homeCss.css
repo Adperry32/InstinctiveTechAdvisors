@@ -63,10 +63,6 @@ nav {
     font-size: 1.2em;
 }
 
-.menu-icon {
-    display: none; /* Hidden on desktop */
-}
-
 nav a {
     color: #fff;
     background-color: #C43C79;
@@ -1045,79 +1041,6 @@ footer {
 }
 
 
-
-
-    /* Navigation */
-    nav {
-        font-size: 1em;
-        gap: 10px;
-    }
-
-    /* Banner Section */
-    .banner {
-        block-size: 400px;
-        padding: 1em;
-        justify-content: center;
-    }
-    .banner h1 {
-        font-size: 2em;
-    }
-    .banner p {
-        font-size: 1em;
-    }
-
-    /* Key Areas Section */
-    .info-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 2em;
-    }
-    .info-points {
-        grid-template-columns: 1fr 1fr; /* Reduce columns to two to prevent squishing */
-        gap: 1em;
-    }
-    .info-item {
-        max-inline-size: 90%;
-    }
-
-    /* Services Grid */
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2em;
-    }
-
-    /* Community Section */
-    .community {
-        flex-direction: column;
-    }
-
-    /* Popup Form */
-    .popup {
-        max-inline-size: 80%;
-        padding: 1em;
-    }
-
-    /* Forms */
-    form input,
-    form textarea {
-        font-size: 1rem;
-        padding: 8px;
-    }
-
-    /* Footer */
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
-    .footer-content {
-        margin: 0 auto;
-        padding: 1em;
-    }
-
-
-
-
 /* Below section are all keyframes for organization*/ 
 /* Pulse animation for the glow */
 @keyframes glow-pulse {
@@ -1131,7 +1054,6 @@ footer {
         box-shadow: 0 0 5px #C43C79, 0 0 10px #C43C79, 0 0 20px rgba(196, 60, 121, 0.6);
     }
 }
-
 
 /* Bounce animation keyframes */
 @keyframes bounce {
@@ -1216,7 +1138,6 @@ footer {
         transform: translateX(0);
     }
 }
-
 /* Keyframes for line animations */
 @keyframes lineFlowIn {
     from {
@@ -1228,7 +1149,6 @@ footer {
         transform: translateX(0);
     }
 }
-
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
     /* Header */
@@ -1237,8 +1157,75 @@ footer {
         flex-direction: column;
         align-items: flex-start;
     }
-}
 
+    /* Navigation */
+    nav {
+        font-size: 1em;
+        gap: 10px;
+    }
+
+    /* Banner Section */
+    .banner {
+        block-size: 400px;
+        padding: 1em;
+        justify-content: center;
+    }
+    .banner h1 {
+        font-size: 2em;
+    }
+    .banner p {
+        font-size: 1em;
+    }
+
+    /* Key Areas Section */
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2em;
+    }
+    .info-points {
+        grid-template-columns: 1fr 1fr; /* Reduce columns to two to prevent squishing */
+        gap: 1em;
+    }
+    .info-item {
+        max-inline-size: 90%;
+    }
+
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
+    }
+
+    /* Community Section */
+    .community {
+        flex-direction: column;
+    }
+
+    /* Popup Form */
+    .popup {
+        max-inline-size: 80%;
+        padding: 1em;
+    }
+
+    /* Forms */
+    form input,
+    form textarea {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    /* Footer */
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-content {
+        margin: 0 auto;
+        padding: 1em;
+    }
+}
 
 @media (max-width: 768px) {
     /* Header */
@@ -1364,89 +1351,5 @@ footer {
     button {
         padding: 0.5em;
         font-size: 0.8em;
-    }
-}
-
-/******* Mobile Navigation: Collapsible Menu *******/
-@media (max-width: 768px) {
-    nav {
-        display: none; /* Hide navigation by default */
-        flex-direction: column;
-        background-color: var(--background-color);
-        position: absolute;
-        inset-inline-start: 0;
-        inset-block-start: 70px; /* Below header */
-        inline-size: 100%;
-        padding: 1em;
-    }
-
-    nav a {
-        color: var(--text-color);
-        background-color: transparent;
-        padding: 0.8em 0;
-        border-block-end: 1px solid #ddd;
-    }
-
-    nav.show {
-        display: flex; /* Show navigation when active */
-    }
-
-    .menu-icon {
-        display: block;
-        font-size: 1.5em;
-        cursor: pointer;
-    }
-}
-
-/* Mobile Banner Adjustments */
-@media (max-width: 768px) {
-    .banner {
-        block-size: 300px;
-        justify-content: center;
-        padding: 1em;
-    }
-
-    .banner h1 {
-        font-size: 2em;
-    }
-
-    .banner p {
-        font-size: 1em;
-        margin-inline: 1em;
-    }
-}
-
-/* Responsive Services Grid */
-@media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: 1fr; /* Single column layout */
-        gap: 1.5em;
-    }
-}
-
-/* Responsive Key Areas */
-@media (max-width: 768px) {
-    .key-areas-grid {
-        flex-direction: column;
-        gap: 1.5em;
-        text-align: center;
-    }
-}
-
-/* Touch-Friendly Form Fields */
-@media (max-width: 768px) {
-    form input, form textarea {
-        padding: 1em;
-        font-size: 1em;
-    }
-
-    .buttons {
-        flex-direction: column; /* Stack buttons */
-        gap: 1em;
-    }
-
-    button {
-        font-size: 1em;
-        padding: 0.8em;
     }
 }
