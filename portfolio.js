@@ -5,19 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const logos = []; // Array to store all logo objects
     const logoCount = 10; // Number of logos to animate
 
-    // *** ADJUST LOGO SIZE HERE ***
-    // Initial logo size, can be adjusted based on your preference
-    let logoSize = 120; 
+    // Initial logo size
+    let logoSize = 120;
 
-    const fadeElements = document.querySelectorAll('.fade-in'); // Elements for fade-in animations
-    const dropdownLinks = document.querySelectorAll('.dropdown-content a'); // Links in the dropdown menu
-    const popupContainer = document.getElementById("popupForm"); // Popup container for contact form
-    const closePopupButton = document.getElementById("closePopup"); // Button to close the popup
-    const popupForm = document.getElementById("contactForm"); // Popup contact form
-    const footerForm = document.getElementById("contact"); // Footer contact form
-    const learnMoreButtons = document.querySelectorAll(".spacer-button, .banner button"); // Buttons to trigger popup
-    let popupFormSubmitted = false; // Flag to prevent multiple submissions of the popup form
-    let footerFormSubmitted = false; // Flag to prevent multiple submissions of the footer form
+    const fadeElements = document.querySelectorAll(".fade-in");
+    const dropdownLinks = document.querySelectorAll(".dropdown-content a");
+    const popupContainer = document.getElementById("popupForm");
+    const closePopupButton = document.getElementById("closePopup");
+    const popupForm = document.getElementById("contactForm");
+    const footerForm = document.getElementById("contact");
+    const learnMoreButtons = document.querySelectorAll(".spacer-button, .banner button");
+
+    let popupFormSubmitted = false;
+    let footerFormSubmitted = false;
 
     const logoImages = [
         "logos/echelon.JPG",
@@ -27,38 +27,30 @@ document.addEventListener("DOMContentLoaded", () => {
         "logos/plaid.PNG",
         "logos/skillstorm-logo.PNG",
         "logos/walgreens.PNG",
-        "logos/wyndham.PNG", 
+        "logos/wyndham.PNG",
         "logos/fitstir.PNG",
-        "logos/revvi.PNG"
+        "logos/revvi.PNG",
     ];
 
     /************ SECTION 2: Resize Canvas and Adjust Logo Size ************/
     function adjustLogoSize() {
-        // *** ADJUST LOGO SIZE HERE ***
-        // Adjust logo size based on canvas width or other conditions
-        // For example, scale logo size proportionally to canvas width, with limits.
         logoSize = Math.max(100, Math.min(150, canvas.width / 10));
-        console.log(`Adjusted logo size: ${logoSize}px`); // Log for debugging purposes
     }
 
     function resizeCanvas() {
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
 
-        adjustLogoSize(); // Adjust the logo size whenever the canvas is resized
+        adjustLogoSize();
 
-        // Log resizing information for debugging
-        console.log(`Canvas resized: width=${canvas.width}, height=${canvas.height}`);
-
-        // Adjust logo positions proportionally to the new canvas size
-        logos.forEach(logo => {
+        logos.forEach((logo) => {
             logo.x = Math.random() * (canvas.width - logoSize);
-            logo.y = Math.random() * (canvas.height - logoSize + 2);
+            logo.y = Math.random() * (canvas.height - logoSize);
         });
     }
 
-    resizeCanvas(); // Set initial size of the canvas
-    window.addEventListener("resize", resizeCanvas); // Resize canvas on window resize
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     /************ SECTION 3: Logo Class ************/
     class Logo {
@@ -69,29 +61,35 @@ document.addEventListener("DOMContentLoaded", () => {
             this.y = y;
             this.dx = dx;
             this.dy = dy;
+            this.isLoaded = false;
+
             this.image.onload = () => {
+                this.isLoaded = true;
                 this.draw();
+            };
+
+            this.image.onerror = () => {
+                console.error(`Failed to load image: ${imageSrc}`);
             };
         }
 
         draw() {
-            // *** ADJUST LOGO SIZE HERE ***
-            // Draw logo using the dynamically adjusted size
-            ctx.drawImage(this.image, this.x, this.y, logoSize, logoSize);
+            if (this.isLoaded) {
+                ctx.drawImage(this.image, this.x, this.y, logoSize, logoSize);
+            }
         }
 
         update() {
-            // Bounce off the edges
+            if (!this.isLoaded) return;
+
             if (this.x <= 0 || this.x + logoSize >= canvas.width) this.dx *= -1;
             if (this.y <= 0 || this.y + logoSize >= canvas.height) this.dy *= -1;
 
-            // Check for collisions with other logos
             for (const other of logos) {
                 if (other === this) continue;
 
                 const distance = Math.hypot(this.x - other.x, this.y - other.y);
                 if (distance < logoSize) {
-                    // Simple collision response by reversing direction
                     const angle = Math.atan2(this.y - other.y, this.x - other.x);
                     this.dx = Math.cos(angle);
                     this.dy = Math.sin(angle);
@@ -100,11 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // Update positions
             this.x += this.dx;
             this.y += this.dy;
 
-            // Draw the updated position
             this.draw();
         }
     }
@@ -114,12 +110,12 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < logoCount; i++) {
             let x, y;
             let overlapping;
+
             do {
                 overlapping = false;
                 x = Math.random() * (canvas.width - logoSize);
                 y = Math.random() * (canvas.height - logoSize);
-                
-                // Check if the new logo overlaps with any existing logo
+
                 for (const logo of logos) {
                     const distance = Math.hypot(x - logo.x, y - logo.y);
                     if (distance < logoSize) {
@@ -129,8 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             } while (overlapping);
 
-            const dx = (Math.random() - 0.5) * 1.5; // Slower velocity in x direction
-            const dy = (Math.random() - 0.5) * 1.5; // Slower velocity in y direction
+            const dx = (Math.random() - 0.5) * 1.5;
+            const dy = (Math.random() - 0.5) * 1.5;
             const logo = new Logo(logoImages[i % logoImages.length], x, y, dx, dy);
             logos.push(logo);
         }
@@ -140,16 +136,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /************ SECTION 5: Animate Logos ************/
     function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas before each redraw
-        logos.forEach(logo => logo.update()); // Update each logo's position
-        requestAnimationFrame(animate); // Request the next frame for animation
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        logos.forEach((logo) => logo.update());
+        requestAnimationFrame(animate);
     }
 
-    animate(); // Start the animation loop
+    animate();
 
     /************ SECTION 6: Fade-In Animations ************/
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = 1;
                 entry.target.style.transform = "translateY(0)";
@@ -158,11 +154,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    fadeElements.forEach(el => observer.observe(el));
+    fadeElements.forEach((el) => observer.observe(el));
 
     /************ SECTION 7: Smooth Scrolling for Navigation ************/
-    dropdownLinks.forEach(link => {
-        link.addEventListener('click', event => {
+    dropdownLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
             const targetHref = link.getAttribute("href");
             const [page, sectionId] = targetHref.split("#");
 
@@ -207,7 +203,8 @@ document.addEventListener("DOMContentLoaded", () => {
             message: document.getElementById("message").value.trim() || "No message provided",
         };
 
-        emailjs.send("service_g9gvw04", "template_xgp1r5q", popupFormData)
+        emailjs
+            .send("service_g9gvw04", "template_xgp1r5q", popupFormData)
             .then(() => {
                 alert("Your message has been sent successfully!");
                 popupContainer.style.visibility = "hidden";
@@ -228,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
         popupForm.reset();
     });
 
-    learnMoreButtons.forEach(button => {
+    learnMoreButtons.forEach((button) => {
         button.addEventListener("click", () => {
             popupContainer.style.visibility = "visible";
             popupContainer.style.opacity = "1";
@@ -255,7 +252,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        emailjs.send("service_g9gvw04", "template_2jplk7p", footerFormData)
+        emailjs
+            .send("service_g9gvw04", "template_2jplk7p", footerFormData)
             .then(() => {
                 alert("Thank you for contacting us! We'll get back to you soon.");
                 footerForm.style.display = "none";

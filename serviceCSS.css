@@ -163,6 +163,7 @@ nav a:hover {
     color: var(--primary-color);
     text-align: center;
     margin-block-start: 0.5em;
+    font-family: var(--font-family);
 }
 
 

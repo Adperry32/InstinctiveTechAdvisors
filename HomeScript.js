@@ -1,5 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+
+    /********Special section for mobile compatibility *********/
+    function toggleMenu() {
+        const nav = document.querySelector('nav'); // Your existing nav
+        const mobileNav = document.getElementById('mobileMenu'); // Mobile nav
+        nav.classList.toggle('show'); // For desktop
+        mobileNav.classList.toggle('active'); // For mobile
+    }
+    
+
     /************ SECTION 1: Global Variables ************/
     const apiCache = new Map(); // Caching for API requests
     let requestCount = 0; // Request count for rate limiting
@@ -252,4 +262,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+   
 
