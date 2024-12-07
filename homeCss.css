@@ -964,8 +964,6 @@ img {
     position: relative;
 }
 
-
-
 /* Form Fields */
 form input,
 form textarea {
@@ -991,8 +989,7 @@ form textarea {
 /* Radio Button Options */
 .radio-options {
     display: flex;
-    flex-wrap: wrap;
-    /* Wraps options for smaller screens */
+    flex-wrap: wrap; /* Wraps options for smaller screens */
     justify-content: space-between;
     margin-block-end: 15px;
     gap: 10px;
@@ -1006,8 +1003,7 @@ form textarea {
 }
 
 .radio-options input {
-    margin-inline-end: 8px;
-    /* Space between radio and label text */
+    margin-inline-end: 8px; /* Space between radio and label text */
 }
 
 /* Message Box */

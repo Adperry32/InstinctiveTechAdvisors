@@ -525,3 +525,9 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* Fade-in Class for Scroll-Triggered Animations */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
