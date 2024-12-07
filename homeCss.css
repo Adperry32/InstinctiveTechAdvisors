@@ -15,12 +15,7 @@
 }
 
 /* global font change where allowed*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     /* Use the bold weight for headings */
@@ -156,6 +151,7 @@ nav a:hover {
     padding: 100px 0;
 }
 
+
 .banner-spacer {
     margin-block-end: 150px;
 }
@@ -176,22 +172,17 @@ section.banner {
     block-size: 620px;
     inline-size: 100%;
     max-block-size: 80vh;
-    margin: 0;
-    /* Removes default margin */
-    padding: 0;
-    /* Removes padding */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes padding */
     text-align: center;
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    /* Align items to the bottom */
+    justify-content: flex-end; /* Align items to the bottom */
     overflow: hidden;
-    position: relative;
-    /* Ensure no extra spacing due to positioning */
-    inset-block-start: 50px;
-    /* Ensure alignment with the header */
+    position: relative; /* Ensure no extra spacing due to positioning */
+    inset-block-start: 50px; /* Ensure alignment with the header */
 }
 
 .banner h1 {
@@ -217,10 +208,8 @@ section.banner {
     margin-inline-start: 55px;
     transition: background 0.3s;
     animation: pulse 1.5s infinite;
-    position: relative;
-    /* Keeps the button in the banner flow */
-    margin-block-end: 20px;
-    /* Adds spacing from the bottom */
+    position: relative; /* Keeps the button in the banner flow */
+    margin-block-end: 20px; /* Adds spacing from the bottom */
 }
 
 .banner button:hover {
@@ -260,8 +249,7 @@ section.banner {
     gap: 10px;
     background-color: #C43C79;
     position: fixed;
-    inset-block-start: 70px;
-    /* Adjust based on header height */
+    inset-block-start: 70px; /* Adjust based on header height */
     inset-inline-end: 0;
     inline-size: 100%;
     padding: 1em;
@@ -285,30 +273,24 @@ section.banner {
 /* Styling for the key areas section */
 .info-section {
     display: flex;
-    flex-direction: row-reverse;
-    /* Switches the order of children */
+    flex-direction: row-reverse; /* Switches the order of children */
     justify-content: space-around;
     background: linear-gradient(120deg, #c43c79, #54147c);
     color: #fff;
     padding: 1.1em 1.5em;
     gap: 5.5em;
     margin-block-start: 50px;
-    align-items: center;
-    /* Center-align title vertically */
+    align-items: center; /* Center-align title vertically */
 }
 
 .info-title {
     flex: 1;
-    max-inline-size: 20%;
-    /* Ensure title doesn't take too much space */
-    text-align: end;
-    /* Align text to the right */
-    margin-inline-end: 6.5em;
-    /* Add space from the edge */
+    max-inline-size: 20%; /* Ensure title doesn't take too much space */
+    text-align: end; /* Align text to the right */
+    margin-inline-end: 6.5em; /* Add space from the edge */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    /* Center title vertically */
+    justify-content: center; /* Center title vertically */
 }
 
 .info-title h2 {
@@ -319,11 +301,9 @@ section.banner {
 }
 
 .info-points {
-    display: grid;
-    /* Change to flex for better control */
+    display: grid; /* Change to flex for better control */
     grid-template-columns: repeat(3, 1fr);
-    flex: 0.6;
-    /* Adjusts to the available space */
+    flex: 0.6; /* Adjusts to the available space */
 }
 
 .icon {
@@ -362,16 +342,13 @@ img {
 .info-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* Align content to the left */
+    align-items: center; /* Align content to the left */
     text-align: start;
     font-size: 0.8em;
-    max-inline-size: 300px;
-    /* Ensure narrower columns */
+    max-inline-size: 300px; /* Ensure narrower columns */
     max-block-size: 300px;
     border-radius: 10%;
-    margin-inline-start: 4em;
-    /* Adds left margin for alignment */
+    margin-inline-start: 4em; /* Adds left margin for alignment */
     box-shadow: 0 20px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -390,8 +367,7 @@ img {
 }
 
 .services-title {
-    max-inline-size: 40%;
-    /* Left column with title and description */
+    max-inline-size: 40%; /* Left column with title and description */
 }
 
 .services-title h2 {
@@ -409,20 +385,16 @@ img {
 /* Grid layout for services (right side) */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* Smaller grid for compact display */
+    grid-template-columns: repeat(3, 1fr); /* Smaller grid for compact display */
     gap: 3em;
-    inline-size: 65%;
-    /* Right column for the gallery */
+    inline-size: 65%; /* Right column for the gallery */
 }
 
 /* Service item styling */
 .service-item {
     perspective: 1000px;
-    inline-size: 310px;
-    /* Larger width */
-    block-size: 310px;
-    /* Larger height, keeps square shape */
+    inline-size: 310px; /* Larger width */
+    block-size: 310px; /* Larger height, keeps square shape */
 }
 
 .card {
@@ -1416,6 +1388,13 @@ footer {
 
 @media (max-width: 768px) {
 
+    /* Header */
+    header {
+        padding: 1em 0.5em;
+        text-align: center;
+    }
+
+
     /* Navigation */
     nav {
         display: flex;
@@ -1509,7 +1488,7 @@ footer {
     }
 }
 
-/* Styling for Landscape Orientation on Mobile Devices (max-width: 768px) */
+/* Styling for Landscape Orientation on Mobile Devices (max-inline-size: 768px) */
 @media (max-width: 768px) and (orientation: landscape) {
     header {
         padding: 0.3em;
@@ -1549,16 +1528,11 @@ footer {
 @media (max-width: 480px) {
 
     /* General Font Sizes */
-    h1,
-    h2,
-    h3,
-    h4 {
+    h1,h2,h3,h4 {
         font-size: 1.2em;
     }
 
-    p,
-    li,
-    a {
+    p,li,a {
         font-size: 0.8em;
     }
 
@@ -1804,7 +1778,6 @@ footer {
 
 /* Medium-Sized Devices (max-inline-size: 768px) */
 @media (max-width: 768px) {
-
     /* Header Adjustments */
     header {
         flex-direction: row;
@@ -1813,7 +1786,6 @@ footer {
 
     nav {
         display: none;
-        
     }
 
     .logo-container {
@@ -1984,3 +1956,5 @@ footer {
         font-size: 0.8em;
     }
 }
+
+

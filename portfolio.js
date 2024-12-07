@@ -20,16 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let footerFormSubmitted = false;
 
     const logoImages = [
-        "logos/echelon.JPG",
-        "logos/fullsaillogo.JPG",
-        "logos/iHeart.JPG",
-        "logos/kwLogo.JPG",
-        "logos/plaid.PNG",
-        "logos/skillstorm-logo.PNG",
-        "logos/walgreens.PNG",
-        "logos/wyndham.PNG",
-        "logos/fitstir.PNG",
-        "logos/revvi.PNG",
+        "Logos/echelon.jpg",
+        "Logos/fullsaillogo.JPG",
+        "Logos/iHeart.JPG",
+        "Logos/kwLogo.JPG",
+        "Logos/plaid.PNG",
+        "Logos/skillstorm-logo.PNG",
+        "Logos/walgreens.PNG",
+        "Logos/wyndham.PNG",
+        "Logos/fitstir.png",
+        "Logos/revvi.png",
     ];
 
     /************ SECTION 2: Resize Canvas and Adjust Logo Size ************/
