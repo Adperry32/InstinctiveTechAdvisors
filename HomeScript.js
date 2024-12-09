@@ -1,17 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+// Attach the function to the hamburger menu
+document.querySelector(".hamburger-menu").addEventListener("click", toggleMenu);
 
     /********Special section for mobile compatibility *********/
     function toggleMenu() {
-        const nav = document.querySelector('nav'); // Your existing nav
-        const mobileNav = document.getElementById('mobileMenu'); // Mobile nav
-        nav.classList.toggle('show'); // For desktop
-        mobileNav.classList.toggle('active'); // For mobile
+        const mobileMenu = document.querySelector("nav.mobile-nav");
+        mobileMenu.classList.toggle("active");
     }
     
 
     /************ SECTION 1: Global Variables ************/
     const apiCache = new Map(); // Caching for API requests
+    const mobileSize = window.innerWidth; // Verify screen size
     let requestCount = 0; // Request count for rate limiting
     const requestLimit = 10; // Max requests in a time window
     const timeWindow = 60000; // 1 minute in milliseconds
@@ -263,5 +264,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-   
 
