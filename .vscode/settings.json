@@ -7,5 +7,9 @@
         "fullsaillogo",
         "Fzkp",
         "Mullenweg"
+    ],
+    "python.analysis.extraPaths": [
+        "./import ",
+        "./import "
     ]
 }

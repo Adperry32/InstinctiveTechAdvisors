@@ -511,10 +511,8 @@ img {
     text-align: center;
     padding: 30px 20px;
     color: white;
-    inline-size: 100%;
-    /* Makes the spacer full width */
-    box-sizing: border-box;
-    /* Ensures padding is included in the width */
+    inline-size: 100%; /* Makes the spacer full width */
+    box-sizing: border-box; /* Ensures padding is included in the width */
 }
 
 .spacer h2 {
@@ -1513,6 +1511,30 @@ footer {
         inline-size: 100%;
     }
 
+    /* Disable flipping animation on mobile */
+    .service-item .card {
+        transform: none !important;
+        cursor: pointer;
+    }
+
+    /* Make the entire service item clickable */
+    .service-item .card-front {
+        pointer-events: auto;
+    }
+
+    .card-front:hover img {
+        transform: none; /* Disable hover effect on mobile */
+    }
+
+    .card-front:hover .overlay {
+        opacity: 1; /* Keep overlay visible for better interaction feedback */
+    }
+
+    /* Hide card-back entirely on mobile */
+    .card-back {
+        display: none;
+    }
+
     /* Text Areas */
     .text-content,
     .info-title {
@@ -1550,89 +1572,7 @@ footer {
 }
 
 
-@media (max-width: 480px) {
 
-    /* General Font Sizes */
-    h1,h2,h3,h4 {
-        font-size: 1.2em;
-    }
-
-    p,li,a {
-        font-size: 0.8em;
-    }
-
-    /* Header */
-    header {
-        padding: 0.5em;
-        font-size: 0.8em;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo-container {
-        inline-size: 30px;
-        animation: flip 3s linear infinite;
-    }
-
-    nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 3px;
-    }
-
-    nav a {
-        padding: 0.2em 0.5em;
-        font-size: 0.65em;
-        background-color: #C43C79;
-        color: #fff;
-        border-radius: 3px;
-        text-decoration: none;
-        transition: background 0.3s, color 0.3s;
-    }
-
-    nav a:hover {
-        background-color: #fff;
-        color: #FD6602;
-    }
-
-    /* Banner Section */
-    .banner {
-        block-size: 250px;
-    }
-
-    /* Community */
-    .community {
-        flex-direction: column;
-        gap: 1.5em;
-    }
-
-    /* Footer */
-    footer {
-        padding: 1em;
-    }
-
-    .footer-content {
-        max-inline-size: 100%;
-        text-align: center;
-        padding: 1em;
-        font-size: 0.8em;
-    }
-
-    /* Buttons */
-    .spacer-button,
-    .submit-btn {
-        font-size: 0.7em;
-        padding: 0.4em;
-    }
-
-    /* Buttons General */
-    button {
-        padding: 0.5em;
-        font-size: 0.8em;
-    }
-}
 
 /* Base Mobile Styling for Small Screens (max-inline-size: 480px) */
 @media (max-width: 480px) {
@@ -1853,13 +1793,14 @@ footer {
         animation: flip 3s linear infinite;
     }
 
+
     /* Banner Section Adjustments */
     .banner {
         background-image: url('images/mobile-banner.png'); /* New background image for tablets */
         inline-size: 100%;
         background-size: cover;
         justify-content: center;
-        margin-block-end: 50px;
+        margin-block-start: 10px;
     }
 
     .banner h1 {
@@ -1916,7 +1857,7 @@ footer {
         max-inline-size: 100%;
         padding: 0.5em;
         text-align: start;
-        font-size: 0.39rem; /* Smaller text size for mobile */
+        font-size: 0.44rem; /* Smaller text size for mobile */
     }
 
     .icon {
@@ -1928,6 +1869,16 @@ footer {
         background-color: #ffffff;
         padding: 20px 0;
     }
+
+    /* Spacer Section (Full-Width Banner) */
+.spacer h2 {
+    background: linear-gradient(120deg, #54147c, #c43c79);
+    text-align: center;
+    padding: 30px 20px;
+    color: white;
+    inline-size: 100%; /* Makes the spacer full width */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
 
     /* Services Section Adjustments */
     .services-section {
@@ -1947,7 +1898,7 @@ footer {
     }
 
     .services-title p {
-        font-size: 0.4em;
+        font-size: 0.48rem;
         text-align: start;
         margin-inline-end: 10px;
     }
@@ -2016,8 +1967,8 @@ footer {
     }
 
     .text-content p {
-        font-size: 0.4em;
-        line-height: 1.2em;
+        font-size: 0.48rem;
+        line-height: 1.05em;
         text-align: start;
     }
 
@@ -2032,6 +1983,440 @@ footer {
         border-radius: 8px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .key-areas-section {
+        text-align: center;
+    }
+    
+    .key-areas-section h2 {
+        font-size: 2.8em;
+        margin-block-end: 0.3em;
+        color: #FD6602;
+    }
+    
+    .key-areas-section p {
+        font-size: 1.1em;
+        margin-block-end: 2em;
+        text-align: center;
+    }
+    
+    .key-areas-grid {
+        display: flex;
+        justify-content: center;
+        gap: 15em;
+        padding-block-end: 50px;
+    }
+
+    .culture {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .culture .company-culture {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .culture .company-culture h2 {
+        text-align: center;
+        font-size: 2.8rem;
+        color: #FD6602;
+        margin: 0;
+    }
+    
+    .culture .company-culture p {
+        text-align: start;
+        font-size: 1.12rem;
+        align-items: center;
+        line-height: 1.58;
+        color: #555;
+        max-inline-size: 75%;
+        margin: 0 auto;
+    }
+    
+    
+    
+    /* General styling for the community section */
+    .community {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        /* Adds space between the image and text */
+        margin: 40px 0;
+        padding: 20px;
+        box-sizing: border-box;
+        opacity: 0;
+        /* Initial state for fade-in */
+        transform: translateY(20px);
+        /* Initial position for animation */
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    /* Text content styling */
+    .community .text-content {
+        flex: 1;
+        /* Allow the text to take up equal or more space */
+        padding-inline-start: 50px;
+        /*padding to move <p> from edge*/
+    }
+    
+    .community .text-content h2 {
+        font-size: 2.8rem;
+        margin-block-end: 15px;
+    }
+    
+    .community .text-content p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #555;
+    }
+    
+    /* Image content styling */
+    .community .community-image-content {
+        flex: 1;
+        /* Allow the image to take up equal space */
+        text-align: center;
+        /* Center the image horizontally */
+    }
+    
+    .community .community-image-content img {
+        max-inline-size: 90%;
+        /* Ensure the image scales appropriately */
+        max-block-size: 100%;
+        block-size: auto;
+        border-radius: 20px;
+        /* Optional: Adds rounded corners to the image */
+    }
+    
+    /* Fade-in effect */
+    .community.fade-in {
+        opacity: 1;
+        /* Fully visible */
+        transform: translateY(0);
+        /* Reset position */
+    }
+    
+    /* Style for the quote section */
+    /* Base styling for the quote section */
+    .quote-section {
+        text-align: center;
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+        padding-block-end: 1px;
+    }
+    
+    .quote-container {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        padding-block-end: 60px;
+    }
+    
+    .quote-line {
+        font-family: 'Playwrite AU NSW', sans-serif;
+        font-weight: 400;
+        /* Use the bold weight for headings */
+        font-size: 2.89rem;
+        color: #333;
+        opacity: 0;
+        /* Hidden by default */
+        position: relative;
+        transform: translateX(0);
+        /* Start position neutral */
+        transition: transform 1s ease, opacity 1s ease;
+    }
+    
+    .line-left {
+        transform: translateX(-100%);
+        /* Start off-screen to the left */
+    }
+    
+    .line-right {
+        transform: translateX(100%);
+        /* Start off-screen to the right */
+    }
+    
+    .quote-line.visible.line-left {
+        transform: translateX(0);
+        /* Animate into place */
+        opacity: 1;
+    }
+    
+    .quote-line.visible.line-right {
+        transform: translateX(0);
+        /* Animate into place */
+        opacity: 1;
+    }
+    
+    .author {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #555;
+        margin-block-start: 20px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .tech-topics {
+        padding: 2em;
+        background-color: #f9f9f9;
+        overflow-x: hidden;
+        /* Prevent scrollbars outside the container */
+    }
+    
+    .tech-topics h2 {
+        text-align: center;
+        font-size: 2.3rem;
+        margin-block-end: 1em;
+    }
+    
+    .tech-topics h3 {
+        color: #FD6602;
+        text-align: center;
+        padding-block-end: 15px;
+        font-size: 1.2em;
+    }
+    
+    .tech-topics p {
+        text-align: start;
+        font-size: 0.8em;
+    }
+    
+    .topics-container {
+        display: flex;
+        gap: 3em;
+        overflow-x: auto;
+        /* Enable horizontal scrolling */
+        padding: 0.5em;
+        scroll-behavior: smooth;
+        /* Smooth scrolling for user interaction */
+    }
+    
+    .topic-item {
+        flex: 0 0 auto;
+        /* Ensure items don't shrink or grow */
+        inline-size: 350px;
+        /* Adjust card width */
+        background: linear-gradient(135deg,
+                #C43C79 5%,
+                /* Dark purple in the corner */
+                #ffffff 20%,
+                /* Subtle pink blend */
+                #ffffff 100%
+                /* Dominant white */
+            );
+        /* Updated gradient background */
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+        overflow: hidden;
+        /* Contain the image and text */
+        padding: 1em;
+        /* Add padding around content */
+        color: white;
+        /* Text color for gradient background */
+        block-size: 330px;
+    }
+    
+    .topic-item:hover {
+        transform: scale(1.05);
+        /* Slightly enlarge on hover */
+    }
+    
+    .topic-image {
+        inline-size: 100%;
+        block-size: 150px;
+        /* Fixed height for consistent layout */
+        object-fit: cover;
+        border-radius: 5px 5px 0 0;
+        /* Rounded corners for the top */
+    }
+    
+    .topic-title {
+        font-size: 1.8rem;
+        /* Increased font size for title */
+        font-weight: bold;
+        color: #320b4f;
+        /* Slightly darker purple for contrast */
+        margin-block-start: 1em;
+        /* Add spacing above the title */
+        margin-block-end: 1em;
+        /* Add spacing below the title */
+    }
+    
+    .separator {
+        block-size: 2px;
+        /* Thickness of the separating line */
+        background: white;
+        /* Line color */
+        margin: 1em 0;
+        /* Space around the line */
+        border-radius: 2px;
+        /* Slightly rounded line */
+    }
+    
+    .topic-description {
+        font-size: 0.9rem;
+        /* Slightly smaller font for description */
+        color: #555;
+        /* Neutral gray for readability */
+        text-align: end;
+        /* Align preview text to the right */
+        line-height: 1.4;
+        /* Improve readability */
+        margin-block-start: 0.5em;
+        margin-block-end: 1em;
+        /* Add spacing below the description */
+    }
+    
+    
+    .topic-item a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        padding: 0.5em;
+        font-size: 0.9rem;
+        color: #320b4f;
+        /* Link color: Gold */
+        font-weight: bold;
+    }
+    
+    
+    /* Popup Container */
+    .popup-container {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 1000;
+    }
+    
+    
+    .popup-container.visible {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    /* Popup Box */
+    .popup {
+        background: linear-gradient(135deg,
+                #C43C79 5%,
+                /* Bright purple in the corner */
+                #ffffff 20%,
+                /* white */
+                #ffffff 100%
+                /* extra white for better fading*/
+            );
+        padding: 20px 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        max-inline-size: 500px;
+        inline-size: 90%;
+        /* Responsive width */
+        text-align: center;
+        position: relative;
+    }
+    
+    /* Form Fields */
+    form input,
+    form textarea {
+        inline-size: 100%;
+        padding: 10px;
+        margin-block-end: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 0.8rem;
+    }
+    
+    /* Name Fields Side-by-Side */
+    .name-fields {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .name-fields input {
+        flex: 1;
+    }
+    
+    /* Radio Button Options */
+    .radio-options {
+        display: flex;
+        flex-wrap: wrap; /* Wraps options for smaller screens */
+        justify-content: space-between;
+        margin-block-end: 15px;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .radio-options label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .radio-options input {
+        margin-inline-end: 8px; /* Space between radio and label text */
+    }
+    
+    /* Message Box */
+    form textarea {
+        block-size: 150px;
+        resize: none;
+    }
+    
+    /* Buttons (Submit and Cancel) */
+    .buttons {
+        display: flex;
+        gap: 10px;
+        margin-block-start: 5px;
+    }
+    
+    .submit-btn,
+    .close-btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+    
+    /* Submit Button Styling */
+    .submit-btn {
+        background-color: #54147c;
+        color: #fff;
+        margin-inline-start: 105px;
+    }
+    
+    .submit-btn:hover {
+        background: #c43c79;
+    }
+    
+    /* Close Button in Top-Right Corner */
+    .close-btn {
+        position: absolute;
+        background: #54147c;
+        inset-inline-start: 290px;
+        border: none;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .close-btn:hover {
+        background-color: #c43c79;
+        color: #fff;
     }
 
     .culture .company-culture{
